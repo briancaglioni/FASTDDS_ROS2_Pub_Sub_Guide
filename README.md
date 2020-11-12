@@ -71,10 +71,6 @@ std::cout << "Received: " << st.data().c_str() << std:endl;
 
 Now you should see the messages being printed in the subscriber console too.
 
----
-Authors
-  Caglioni Brian
-  Youssef Zraiba
----
-
-
+Authors:
+ - Caglioni Brian
+ - Youssef Zraiba
