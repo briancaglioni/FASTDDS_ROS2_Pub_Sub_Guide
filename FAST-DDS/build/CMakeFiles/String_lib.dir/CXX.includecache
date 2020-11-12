@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/labmate/Desktop/TestROSDDS/FAST-DDS/String.cxx
+String.h
+/home/labmate/Desktop/TestROSDDS/FAST-DDS/String.h
+fastcdr/Cdr.h
+-
+fastcdr/exceptions/BadParamException.h
+-
+utility
+-
+
+/home/labmate/Desktop/TestROSDDS/FAST-DDS/String.h
+stdint.h
+-
+array
+-
+string
+-
+vector
+-
+map
+-
+bitset
+-
+

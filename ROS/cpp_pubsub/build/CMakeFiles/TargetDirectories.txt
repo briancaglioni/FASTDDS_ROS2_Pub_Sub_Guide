@@ -1,0 +1,9 @@
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/install/strip.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/install.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/talker.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/uninstall.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/install/local.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/test.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/list_install_components.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/edit_cache.dir
+/home/labmate/Desktop/TestROSDDS/ROS/cpp_pubsub/build/CMakeFiles/rebuild_cache.dir
