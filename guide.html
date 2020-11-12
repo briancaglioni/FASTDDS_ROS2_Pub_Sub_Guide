@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#fastdds--ros2--publishersubscriber">FASTDDS & ROS2 ~ Publisher/Subscriber</a>
+<ul>
+<li><a href="#communication-fastdds--ros2">Communication FASTDDS & ROS2</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="fastdds--ros2--publishersubscriber">FASTDDS &amp; ROS2 ~ Publisher/Subscriber</h1>
+<h2 id="communication-fastdds--ros2">Communication FASTDDS &amp; ROS2</h2>
+<h3 id="presequisites">Presequisites</h3>
+<ul>
+<li>ROS2</li>
+<li>FASTDDS</li>
+</ul>
+<h3 id="setup-dds-environment">Setup DDS Environment</h3>
+<p>Copy <strong>String.idl</strong> file from ros directory to your workspace:</p>
+<blockquote>
+<p>cp /opt/ros/&lt;versione&gt;/share/std_msg_ms/msg/String.idl /home/&lt;workspace_directory&gt;</p>
+</blockquote>
+<p><strong>Warning!!</strong> Edit String.idl file if you want to call “String” your Struct. You must use an escape character “_String”.</p>
+<p>In the workspace directory, generate DDS files:</p>
+<blockquote>
+<p>fastrtpsgen -example CMake String.idl</p>
+</blockquote>
+<p>Edit <strong>StringPubSubTypes.cxx</strong> file at line 37 in the <strong>setName</strong> method:</p>
+<pre><code>setName("std_msgs::msg::**dds_**::String&lt;strong&gt;_&lt;/strong&gt;");
+</code></pre>
+<p>Edit <strong>StringPublisher.cxx</strong> or <strong>StringSubscriber.cxx</strong> edit the topic name with leading “rt/” (line 59):</p>
+<pre><code>..topicName = "rt/TopicName";
+</code></pre>
+<p>Make a directory called “build” and compile code, generating the executable file:</p>
+<blockquote>
+<p>mkdir build &amp;&amp; cd build<br>
+cmake …<br>
+make</p>
+</blockquote>
+<h3 id="setup-ros2-environment">Setup ROS2 Environment</h3>
+<p>Follow the tutorial at <a href="https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber/">https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber/</a><br>
+Do not run the executable yet.</p>
+<p>Then Edit <strong>publisher_member_function.cpp</strong>(line 34):</p>
+<pre><code>publisher_ = this-&gt;create_publisher&lt;std_msg::msg::String&gt;("TopicName", 10);
+</code></pre>
+<p>In &lt;workspace&gt;/cpp_pubsub, make a directory called “build” and compile code, generating executable the file:</p>
+
+<blockquote>
+<p>mkdir build &amp;&amp; cd build<br>
+cmake …<br>
+make</p>
+</blockquote>
+<h3 id="execute">Execute</h3>
+<p>Open two different terminal.<br>
+In the first terminal, go to the FASTDDS Environment and run:</p>
+<blockquote>
+<p>./String subscriber</p>
+</blockquote>
+<p>In the other terminal, go to cpp_pubsub/build and run:</p>
+<blockquote>
+<p>./talker</p>
+</blockquote>
+<p>Now you should see the two terminals communicating.</p>
+<h3 id="edit-message-sent">Edit message sent</h3>
+<p>If you want to see the message exchange, edit <strong>StringSubscriber</strong> in the FASTDDS environment and change your code in order to print the received messages(line 95):</p>
+<pre><code>std::cout &lt;&lt; "Received: " &lt;&lt; st.data().c_str() &lt;&lt; std:endl; 
+</code></pre>
+<p>Now you should see the messages being printed in the subscriber console too.</p>
+<dl>
+<dt>Authors</dt>
+<dd>Caglioni Brian</dd>
+<dd>Youssef Zraiba</dd>
+</dl>
+
+    </div>
+  </div>
+</body>
+
+</html>
