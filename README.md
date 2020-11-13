@@ -50,7 +50,9 @@ publisher_ = this->create_publisher<std_msg::msg::String>("TopicName", 10);
 In \<workspace>/cpp_pubsub, make a directory called "build" and compile code, generating executable the file:
 
 > mkdir build && cd build
+
 > cmake ..
+
 > make
 
 ### Execute
