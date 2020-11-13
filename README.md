@@ -10,7 +10,7 @@
 
 ### Setup DDS Environment
 Copy **String.idl** file from ros directory to your workspace:
-> cp /opt/ros/\<versione\>/share/std_msg_ms/msg/String.idl /home/\<workspace_directory\>
+> cp /opt/ros/\<version\>/share/std_msg_ms/msg/String.idl /home/\<workspace_directory\>
 
 **Warning!!** Edit String.idl file if you want to call "String" your Struct. You must use an escape character "_String".
 
@@ -31,7 +31,9 @@ Edit **StringPublisher.cxx** or **StringSubscriber.cxx** edit the topic name wit
 Make a directory called "build" and compile code, generating the executable file:
 
 > mkdir build && cd build
+
 > cmake ..
+
 > make
 
 
