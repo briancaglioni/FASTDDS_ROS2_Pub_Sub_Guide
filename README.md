@@ -17,9 +17,9 @@ Copy **String.idl** file from ros directory to your workspace:
 In the workspace directory, generate DDS files:
 > fastrtpsgen -example CMake String.idl
 
-Edit **StringPubSubTypes.cxx** file at line 37 in the **setName** method:
+Edit **StringPubSubTypes.cxx** file at line 37 in the **setName** method, adding "dds_" before "String", and "\_" after it:
 ```
-setName("std_msgs::msg::**dds_**::String<strong>_</strong>");
+setName("std_msgs::msg::dds_::String_");
 ```
 
 Edit **StringPublisher.cxx** or **StringSubscriber.cxx** edit the topic name with leading "rt/" (line 59):
@@ -46,7 +46,7 @@ Then Edit **publisher_member_function.cpp**(line 34):
 publisher_ = this->create_publisher<std_msg::msg::String>("TopicName", 10);
 ```
 In \<workspace>/cpp_pubsub, make a directory called "build" and compile code, generating executable the file:
-<style> </style>
+
 > mkdir build && cd build
 > cmake ..
 > make
